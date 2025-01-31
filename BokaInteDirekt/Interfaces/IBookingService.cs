@@ -7,5 +7,7 @@ namespace BokaInteDirekt.Interfaces
 	{
 		Task<List<Booking>> GetAll();
 		Task<Booking>? SaveAppointment(BookingRequest request);
+		Task<Booking> CreateAppointment(BookingRequest request);
+		Task<List<Booking>> GetBookings();
 	}
 }

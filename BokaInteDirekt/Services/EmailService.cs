@@ -1,0 +1,88 @@
+﻿using BokaInteDirekt.DTO;
+using BokaInteDirekt.Interfaces;
+using BokaInteDirekt.Models;
+using Microsoft.Extensions.Options;
+using System.Net;
+using System.Net.Mail;
+
+namespace BokaInteDirekt.Services
+{
+    public class EmailService(IOptions<SmtpEmail> smtp) : IEmailService
+    {
+        private readonly SmtpEmail _smtp = smtp.Value;
+        private readonly string adminEmail = "nellyendler@gmail.com";
+
+        public async Task SetBookingEmail(User user, BookingRequest booking)
+        {
+            string emailBody = $"Hej {user.FirstName}!\nDu har gjort följande bokning:\n{booking.BookingType}\n" +
+                $"Datum: {booking.Day:yyyy-MM-dd}\n" +
+                $"Tid: {booking.StartTime}-{booking.EndTime}" +
+                $"\nAdress: Folkungatan 49.\nVälkommen!";
+
+            await SendEmail(user.Email, "Din bokning", emailBody);
+        }
+
+        public async Task SendEmail(string receiver, string subject, string body)
+        {
+            using var client = new SmtpClient(_smtp.Host, _smtp.Port)
+            {
+                Credentials = new NetworkCredential(_smtp.Username, _smtp.Password),
+                EnableSsl = _smtp.EnableSsl
+            };
+
+            var message = new MailMessage
+            {
+                From = new MailAddress(_smtp.SenderEmail, _smtp.SenderName),
+                Subject = subject,
+                Body = body,
+                IsBodyHtml = true
+            };
+
+            message.To.Add(new MailAddress(receiver));
+            await client.SendMailAsync(message);
+        }
+
+        public async Task SetAdminEmail(BookingUserRequest request)
+        {
+            var startTime = DateTime.Parse($"{request.Request.Day} {request.Request.StartTime}");
+            var endTime = DateTime.Parse($"{request.Request.Day} {request.Request.EndTime}");
+
+            var googleCalendarLink = GenerateGoogleCalendarLink(
+                request.Request.BookingType,
+                startTime,
+                endTime,
+                "Adress",
+                $"Bokning gjord av: {request.User.FirstName} {request.User.LastName} den: {DateTime.Now}"
+                );
+
+            string emailBody = $@"
+        <p><strong>Ny boking: </p>
+        <ul>
+            <li><strong>{request.Request.BookingType}</strong></li>
+            <li>Datum: {request.Request.Day:yyyy-MM-dd}</li>
+            <li>Tid: {request.Request.StartTime}-{request.Request.EndTime}</li>
+            <li>Bokning gjord av: {request.User.FirstName} {request.User.LastName} Datum: {DateTime.Now}</li>
+        </ul>
+        <p>
+            <a href='{googleCalendarLink}' 
+               style='display:inline-block; padding:10px 15px; background-color:#4285F4; color:white; text-decoration:none; border-radius:5px;'>
+               Lägg till i Google Kalender
+            </a>
+        </p>
+    ";
+
+            await SendEmail(adminEmail, "Ny bokning", emailBody);
+        }
+
+        public string GenerateGoogleCalendarLink(string title, DateTime startTime, DateTime endTime, string location, string details)
+        {
+            return
+          $"https://www.google.com/calendar/render?action=TEMPLATE" +
+          $"&text={Uri.EscapeDataString(title)}" +
+          $"&dates={startTime:yyyyMMddTHHmmssZ}/{endTime:yyyyMMddTHHmmssZ}" +
+          $"&details={Uri.EscapeDataString(details)}" +
+          $"&location={Uri.EscapeDataString(location)}" +
+          $"&ctz=Europe/Stockholm";
+        }
+    }
+}

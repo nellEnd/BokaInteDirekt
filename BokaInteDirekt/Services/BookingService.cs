@@ -1,14 +1,34 @@
-﻿using BokaInteDirekt.DTO;
+﻿using BokaInteDirekt.Context;
+using BokaInteDirekt.DTO;
 using BokaInteDirekt.Interfaces;
 using BokaInteDirekt.Models;
+using Microsoft.EntityFrameworkCore;
+using System.Net;
+using System.Net.Mail;
 
 namespace BokaInteDirekt.Services
 {
-	public class BookingService : IBookingService
+	public class BookingService(BokaInteDirektContext context) : IBookingService
 	{
 		private List<Booking>? _bookings;
+		private readonly BokaInteDirektContext _context = context;
 
-		public Task<List<Booking>> GetAll()
+        public async Task<Booking> CreateAppointment(BookingRequest request)
+        {
+			Booking booking = new()
+			{
+				Day = request.Day,
+				Date = DateTime.ParseExact(request.Day, "yyyy-MM-dd", null),
+				StartTime = request.StartTime,
+				EndTime = request.EndTime,
+				IsAvailable = false
+			};
+			 _context.Add(booking);
+			await _context.SaveChangesAsync();
+			return booking;
+        }
+
+        public Task<List<Booking>> GetAll()
 		{
 			if (_bookings == null)
 			{
@@ -64,7 +84,7 @@ namespace BokaInteDirekt.Services
 				{
 					// Skapar tider för bokningarna, ex: 08:00 - 09:00, 09:00 - 10:00, etc.
 					var startHour = 8 + i;
-					var startTime = $"{startHour:00}:00";
+					var startTime = $"{startHour:00}:00";	
 					var endTime = $"{startHour + 1:00}:00";
 
 					// Lägg till bokningen i listan
@@ -72,5 +92,15 @@ namespace BokaInteDirekt.Services
 				}
 			}
 		}
-	}
+
+        public async Task<List<Booking>> GetBookings()
+        {
+            var bookings = await _context.Bookings.ToListAsync();
+
+			if (bookings == null)
+				return null;
+
+			return bookings;
+        }
+    }
 }

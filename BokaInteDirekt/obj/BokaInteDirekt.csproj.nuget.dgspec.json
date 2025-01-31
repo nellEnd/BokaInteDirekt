@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\nelly\\source\\repos\\BokaInteDirekt\\BokaInteDirekt\\BokaInteDirekt.csproj": {}
+    "D:\\projekts\\2025\\Nelly\\BokaInteDirekt\\BokaInteDirekt\\BokaInteDirekt.csproj": {}
   },
   "projects": {
-    "C:\\Users\\nelly\\source\\repos\\BokaInteDirekt\\BokaInteDirekt\\BokaInteDirekt.csproj": {
+    "D:\\projekts\\2025\\Nelly\\BokaInteDirekt\\BokaInteDirekt\\BokaInteDirekt.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nelly\\source\\repos\\BokaInteDirekt\\BokaInteDirekt\\BokaInteDirekt.csproj",
+        "projectUniqueName": "D:\\projekts\\2025\\Nelly\\BokaInteDirekt\\BokaInteDirekt\\BokaInteDirekt.csproj",
         "projectName": "BokaInteDirekt",
-        "projectPath": "C:\\Users\\nelly\\source\\repos\\BokaInteDirekt\\BokaInteDirekt\\BokaInteDirekt.csproj",
-        "packagesPath": "C:\\Users\\nelly\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nelly\\source\\repos\\BokaInteDirekt\\BokaInteDirekt\\obj\\",
+        "projectPath": "D:\\projekts\\2025\\Nelly\\BokaInteDirekt\\BokaInteDirekt\\BokaInteDirekt.csproj",
+        "packagesPath": "C:\\Users\\Wiland'\\.nuget\\packages\\",
+        "outputPath": "D:\\projekts\\2025\\Nelly\\BokaInteDirekt\\BokaInteDirekt\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\nelly\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Wiland'\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -54,6 +53,30 @@
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[9.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[9.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.1, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[7.2.0, )"
             },
             "Swashbuckle.AspNetCore.Swagger": {
               "target": "Package",

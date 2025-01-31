@@ -1,8 +1,40 @@
 [
   {
     "ContainingType": "BokaInteDirekt.Controllers.BookingController",
+    "Method": "BookAppointment",
+    "RelativePath": "api/Booking/BookAppointment",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "BokaInteDirekt.DTO.BookingUserRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BokaInteDirekt.Controllers.BookingController",
+    "Method": "CreateAppointment",
+    "RelativePath": "api/Booking/CreateAppointment",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "BokaInteDirekt.DTO.BookingRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BokaInteDirekt.Controllers.BookingController",
     "Method": "GetAll",
-    "RelativePath": "api/Booking",
+    "RelativePath": "api/Booking/GetAll",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -11,15 +43,25 @@
   },
   {
     "ContainingType": "BokaInteDirekt.Controllers.BookingController",
-    "Method": "BookAppointment",
-    "RelativePath": "api/Booking",
+    "Method": "GetBookings",
+    "RelativePath": "api/Booking/GetBookings",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BokaInteDirekt.Controllers.SmtpEmailController",
+    "Method": "SendEmail",
+    "RelativePath": "api/smtp/SendEmail",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "request",
-        "Type": "BokaInteDirekt.DTO.BookingRequest",
+        "Type": "BokaInteDirekt.DTO.EmailRequest",
         "IsRequired": true
       }
     ],
