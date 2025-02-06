@@ -2,14 +2,24 @@
   {
     "ContainingType": "BokaInteDirekt.Controllers.BookingController",
     "Method": "BookAppointment",
-    "RelativePath": "api/Booking/BookAppointment",
+    "RelativePath": "api/Booking/BookAppointment/{id}/{bookingType}",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "bookingType",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
         "Name": "request",
-        "Type": "BokaInteDirekt.DTO.BookingUserRequest",
+        "Type": "BokaInteDirekt.DTO.BookAppointmentRequest",
         "IsRequired": true
       }
     ],
@@ -33,12 +43,44 @@
   },
   {
     "ContainingType": "BokaInteDirekt.Controllers.BookingController",
+    "Method": "DeleteAppointment",
+    "RelativePath": "api/Booking/DeleteAppointment/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BokaInteDirekt.Controllers.BookingController",
     "Method": "GetAll",
     "RelativePath": "api/Booking/GetAll",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BokaInteDirekt.Controllers.BookingController",
+    "Method": "GetAvailableAppointments",
+    "RelativePath": "api/Booking/GetAvailableAppointments",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bookingType",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": []
   },
   {

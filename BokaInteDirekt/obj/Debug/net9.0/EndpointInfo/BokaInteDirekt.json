@@ -29,26 +29,66 @@
         }
       }
     },
-    "/api/Booking/BookAppointment": {
+    "/api/Booking/GetAvailableAppointments": {
+      "get": {
+        "tags": [
+          "Booking"
+        ],
+        "parameters": [
+          {
+            "name": "bookingType",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Booking/BookAppointment/{id}/{bookingType}": {
       "post": {
         "tags": [
           "Booking"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "bookingType",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
         ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/BookingUserRequest"
+                "$ref": "#/components/schemas/BookAppointmentRequest"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/BookingUserRequest"
+                "$ref": "#/components/schemas/BookAppointmentRequest"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/BookingUserRequest"
+                "$ref": "#/components/schemas/BookAppointmentRequest"
               }
             }
           }
@@ -91,6 +131,29 @@
         }
       }
     },
+    "/api/Booking/DeleteAppointment/{id}": {
+      "delete": {
+        "tags": [
+          "Booking"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/smtp/SendEmail": {
       "post": {
         "tags": [
@@ -125,6 +188,15 @@
   },
   "components": {
     "schemas": {
+      "BookAppointmentRequest": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "$ref": "#/components/schemas/User"
+          }
+        },
+        "additionalProperties": false
+      },
       "BookingRequest": {
         "required": [
           "bookingType",
@@ -149,18 +221,6 @@
           "bookingType": {
             "type": "string",
             "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "BookingUserRequest": {
-        "type": "object",
-        "properties": {
-          "request": {
-            "$ref": "#/components/schemas/BookingRequest"
-          },
-          "user": {
-            "$ref": "#/components/schemas/User"
           }
         },
         "additionalProperties": false

@@ -21,7 +21,7 @@ builder.Services.AddScoped<IBookingService, BookingService>();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<BokaInteDirektContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("ChatDbConnection")));
+    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnectionString")));
 
 var app = builder.Build();
 
