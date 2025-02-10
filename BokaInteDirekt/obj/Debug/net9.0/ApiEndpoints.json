@@ -27,6 +27,27 @@
   },
   {
     "ContainingType": "BokaInteDirekt.Controllers.BookingController",
+    "Method": "CancelAppointment",
+    "RelativePath": "api/Booking/CancelAppointment/{id}/{cancelCode}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "cancelCode",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BokaInteDirekt.Controllers.BookingController",
     "Method": "CreateAppointment",
     "RelativePath": "api/Booking/CreateAppointment",
     "HttpMethod": "POST",
@@ -59,8 +80,8 @@
   },
   {
     "ContainingType": "BokaInteDirekt.Controllers.BookingController",
-    "Method": "GetAll",
-    "RelativePath": "api/Booking/GetAll",
+    "Method": "GetAllAppointments",
+    "RelativePath": "api/Booking/GetAllAppointments",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -85,8 +106,8 @@
   },
   {
     "ContainingType": "BokaInteDirekt.Controllers.BookingController",
-    "Method": "GetBookings",
-    "RelativePath": "api/Booking/GetBookings",
+    "Method": "GetBookedAppointments",
+    "RelativePath": "api/Booking/GetBookedAppointments",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

@@ -12,15 +12,19 @@ namespace BokaInteDirekt.Services
         private readonly SmtpEmail _smtp = smtp.Value;
         private readonly string adminEmail = "nellyendler@gmail.com";
 
-        public async Task SetBookingEmail(User user, Booking booking, string bookingType)
+        public async Task SetBookingEmail(User user, Booking booking, string bookingType, int id, string cancelCode)
         {
+            string cancellationLink = $"https://localhost:7139/api/Booking/CancelAppointment/{id}/{cancelCode}";
             string emailBody = $"Hej {user.FirstName}!\nDu har gjort följande bokning:\n{booking.BookingType}\n" +
                 $"Datum: {booking.Day:yyyy-MM-dd}\n" +
                 $"Tid: {booking.StartTime}-{booking.EndTime}" +
-                $"\nAdress: Folkungatan 49.\nVälkommen!";
+                $"\nAdress: Folkungatan 49.\nVälkommen!" +
+                $"För att avbokad din tid, tryck på följande länk: {cancellationLink}";
 
             await SendEmail(user.Email, "Din bokning", emailBody);
         }
+
+        // CANCEL EMAIL
 
         public async Task SendEmail(string receiver, string subject, string body)
         {

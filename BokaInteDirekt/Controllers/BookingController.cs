@@ -16,18 +16,19 @@ namespace BokaInteDirekt.Controllers
 		private readonly IBookingService _service = service;
 		private readonly IEmailService _emailService = emailService;
 
+		//[Authorize(Roles = "Admin")]
 		[HttpGet]
-		public IActionResult GetAll() 
+		public async Task <IActionResult> GetBookedAppointments() 
 		{
-			var bookings = _service.GetAll();
+			var bookings = await _service.GetBookedAppointments();
 			if (bookings == null)
-				return BadRequest();
+				return NotFound("No booked appointments where found.");
 
 			return Ok(bookings);
 		}
 
 		[HttpGet]
-		public async Task<IActionResult> GetBookings()
+		public async Task<IActionResult> GetAllAppointments()
 		{
 			var bookings = await _service.GetBookings();
 
@@ -55,23 +56,10 @@ namespace BokaInteDirekt.Controllers
 			if (book == null)
 				return BadRequest("The appointment is not available.");
 
-            await _emailService.SetBookingEmail(request.User, book, bookingType);
+            await _emailService.SetBookingEmail(request.User, book, bookingType, book.Id, book.CancelId);
             await _emailService.SetAdminEmail(book, request, bookingType);
 
             return Ok($"Following appointment was successfully booked:\n{book}");
-
-			/*if (!ModelState.IsValid || request == null)
-			{
-				Console.WriteLine(DateTime.UtcNow.ToString(), request);
-				return BadRequest($"Tiden gick inte att boka.{request}");
-			}
-			var appointment = _service.SaveAppointment(request.Request);
-			if (appointment == null)
-				return BadRequest();
-
-			await _emailService.SetBookingEmail(request.User, request.Request);
-			await _emailService.SetAdminEmail(request);
-			return Ok(appointment);*/
 		}
 
 		//[Authorize(Roles ="Admin")]
@@ -95,6 +83,18 @@ namespace BokaInteDirekt.Controllers
 				return NotFound($"Could not find booking with ID {id}.");
 
 			return Ok($"Booking with ID {id} was successfully deleted");
+		}
+
+		[HttpPost("{id}/{cancelCode}")]
+		public async Task <IActionResult> CancelAppointment(int id, string cancelCode)
+		{
+			var appointment = await _service.CancelAppointment(id, cancelCode);
+
+			if (appointment == null)
+				return BadRequest("The appointment does not exist or is already cancelled.");
+
+			return Ok($"Following appointment is cancelled:\n" +
+				$"{appointment}");
 		}
 	}
 }

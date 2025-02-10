@@ -5,7 +5,7 @@
     "version": "1.0"
   },
   "paths": {
-    "/api/Booking/GetAll": {
+    "/api/Booking/GetBookedAppointments": {
       "get": {
         "tags": [
           "Booking"
@@ -17,7 +17,7 @@
         }
       }
     },
-    "/api/Booking/GetBookings": {
+    "/api/Booking/GetAllAppointments": {
       "get": {
         "tags": [
           "Booking"
@@ -144,6 +144,37 @@
             "schema": {
               "type": "integer",
               "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Booking/CancelAppointment/{id}/{cancelCode}": {
+      "post": {
+        "tags": [
+          "Booking"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "cancelCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
             }
           }
         ],

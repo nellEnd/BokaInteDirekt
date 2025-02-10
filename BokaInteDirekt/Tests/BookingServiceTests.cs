@@ -123,7 +123,8 @@ namespace BokaInteDirekt.Tests
                     StartTime = "10:00",
                     EndTime = "10:20",
                     IsAvailable = false,
-                    CustomerEmail = "test@mail.se"
+                    CustomerEmail = "test@mail.se",
+                    BookingType = "Behandling"
                 });
             }
 

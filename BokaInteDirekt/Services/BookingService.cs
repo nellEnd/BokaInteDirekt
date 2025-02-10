@@ -26,9 +26,17 @@ namespace BokaInteDirekt.Services
             return booking;
         }
 
-        public async Task<List<Booking>> GetAll()
+        public async Task<List<Booking>?> GetBookedAppointments()
         {
-            var bookings = await _context.Bookings.ToListAsync();
+            var bookings = await _context.Bookings
+                .Where(b => b.IsAvailable == false)
+                .OrderBy(b => b.Date)
+                .ThenBy(b => b.StartTime)
+                .ToListAsync();
+
+            if (bookings == null || bookings.Count == 0)
+                return null;
+
             return bookings;
         }
 
@@ -77,11 +85,12 @@ namespace BokaInteDirekt.Services
             appointment.EndTime = newEndTime.ToString(@"hh\:mm");
             appointment.IsAvailable = false;
             appointment.CustomerEmail = request.User.Email;
+            appointment.CancelId = Guid.NewGuid().ToString("N").Substring(0, 6).ToUpper();
 
             var nextSlot = await _context.Bookings
-                .Where(b => 
-                b.Day == appointment.Day && 
-                b.EndTime == appointment.EndTime && 
+                .Where(b =>
+                b.Day == appointment.Day &&
+                b.EndTime == appointment.EndTime &&
                 b.IsAvailable)
                 .FirstOrDefaultAsync();
 
@@ -90,6 +99,7 @@ namespace BokaInteDirekt.Services
 
             nextSlot.IsAvailable = false;
             nextSlot.CustomerEmail = request.User.Email;
+            nextSlot.CancelId = appointment.CancelId;
             await _context.SaveChangesAsync();
             return appointment;
         }
@@ -117,6 +127,22 @@ namespace BokaInteDirekt.Services
             _context.Bookings.Remove(appointment);
             await _context.SaveChangesAsync();
             return true;
+        }
+
+        public async Task<Booking?> CancelAppointment(int id, string cancelCode)
+        {
+            var appointment = await _context.Bookings
+                .Where(b => b.Id == id && b.CancelId == cancelCode)
+                .FirstOrDefaultAsync();
+
+            if (appointment == null)
+                return null;
+
+            appointment.CancelId = null;
+            appointment.CustomerEmail = null;
+            appointment.IsAvailable = true;
+            await _context.SaveChangesAsync();
+            return appointment;
         }
     }
 }
