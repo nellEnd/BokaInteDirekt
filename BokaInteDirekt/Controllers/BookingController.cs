@@ -40,6 +40,8 @@ namespace BokaInteDirekt.Controllers
 		public async Task<IActionResult> GetAvailableAppointments([FromQuery] string bookingType)
 		{
 			var appointments = await _service.GetAvailableAppointments(bookingType);
+			if (appointments == null || appointments.Count == 0)
+				return NotFound("No available appointments found.");
 			return Ok(appointments);
 		}
 
@@ -53,8 +55,8 @@ namespace BokaInteDirekt.Controllers
 			if (book == null)
 				return BadRequest("The appointment is not available.");
 
-			await _emailService.SetBookingEmail(request.User, book);
-            await _emailService.SetAdminEmail(book, request);
+            await _emailService.SetBookingEmail(request.User, book, bookingType);
+            await _emailService.SetAdminEmail(book, request, bookingType);
 
             return Ok($"Following appointment was successfully booked:\n{book}");
 

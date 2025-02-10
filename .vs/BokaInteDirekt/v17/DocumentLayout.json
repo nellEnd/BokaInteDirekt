@@ -3,48 +3,48 @@
   "WorkspaceRootPath": "D:\\projekts\\2025\\Nelly\\BokaInteDirekt\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0273916F-C730-4DC0-BAA2-71B14A3522DA}|BokaInteDirekt\\BokaInteDirekt.csproj|d:\\projekts\\2025\\nelly\\bokaintedirekt\\bokaintedirekt\\services\\bookingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0273916F-C730-4DC0-BAA2-71B14A3522DA}|BokaInteDirekt\\BokaInteDirekt.csproj|solutionrelative:bokaintedirekt\\services\\bookingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0273916F-C730-4DC0-BAA2-71B14A3522DA}|BokaInteDirekt\\BokaInteDirekt.csproj|d:\\projekts\\2025\\nelly\\bokaintedirekt\\bokaintedirekt\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0273916F-C730-4DC0-BAA2-71B14A3522DA}|BokaInteDirekt\\BokaInteDirekt.csproj|solutionrelative:bokaintedirekt\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0273916F-C730-4DC0-BAA2-71B14A3522DA}|BokaInteDirekt\\BokaInteDirekt.csproj|d:\\projekts\\2025\\nelly\\bokaintedirekt\\bokaintedirekt\\controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0273916F-C730-4DC0-BAA2-71B14A3522DA}|BokaInteDirekt\\BokaInteDirekt.csproj|solutionrelative:bokaintedirekt\\controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0273916F-C730-4DC0-BAA2-71B14A3522DA}|BokaInteDirekt\\BokaInteDirekt.csproj|d:\\projekts\\2025\\nelly\\bokaintedirekt\\bokaintedirekt\\interfaces\\ibookingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0273916F-C730-4DC0-BAA2-71B14A3522DA}|BokaInteDirekt\\BokaInteDirekt.csproj|solutionrelative:bokaintedirekt\\interfaces\\ibookingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0273916F-C730-4DC0-BAA2-71B14A3522DA}|BokaInteDirekt\\BokaInteDirekt.csproj|d:\\projekts\\2025\\nelly\\bokaintedirekt\\bokaintedirekt\\interfaces\\iemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0273916F-C730-4DC0-BAA2-71B14A3522DA}|BokaInteDirekt\\BokaInteDirekt.csproj|solutionrelative:bokaintedirekt\\interfaces\\iemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0273916F-C730-4DC0-BAA2-71B14A3522DA}|BokaInteDirekt\\BokaInteDirekt.csproj|d:\\projekts\\2025\\nelly\\bokaintedirekt\\bokaintedirekt\\services\\bookingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0273916F-C730-4DC0-BAA2-71B14A3522DA}|BokaInteDirekt\\BokaInteDirekt.csproj|solutionrelative:bokaintedirekt\\services\\bookingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0273916F-C730-4DC0-BAA2-71B14A3522DA}|BokaInteDirekt\\BokaInteDirekt.csproj|d:\\projekts\\2025\\nelly\\bokaintedirekt\\bokaintedirekt\\tests\\bookingservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0273916F-C730-4DC0-BAA2-71B14A3522DA}|BokaInteDirekt\\BokaInteDirekt.csproj|solutionrelative:bokaintedirekt\\tests\\bookingservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0273916F-C730-4DC0-BAA2-71B14A3522DA}|BokaInteDirekt\\BokaInteDirekt.csproj|d:\\projekts\\2025\\nelly\\bokaintedirekt\\bokaintedirekt\\models\\booking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0273916F-C730-4DC0-BAA2-71B14A3522DA}|BokaInteDirekt\\BokaInteDirekt.csproj|solutionrelative:bokaintedirekt\\models\\booking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0273916F-C730-4DC0-BAA2-71B14A3522DA}|BokaInteDirekt\\BokaInteDirekt.csproj|d:\\projekts\\2025\\nelly\\bokaintedirekt\\bokaintedirekt\\dto\\bookappointmentrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0273916F-C730-4DC0-BAA2-71B14A3522DA}|BokaInteDirekt\\BokaInteDirekt.csproj|solutionrelative:bokaintedirekt\\dto\\bookappointmentrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{0273916F-C730-4DC0-BAA2-71B14A3522DA}|BokaInteDirekt\\BokaInteDirekt.csproj|d:\\projekts\\2025\\nelly\\bokaintedirekt\\bokaintedirekt\\dto\\bookinguserrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0273916F-C730-4DC0-BAA2-71B14A3522DA}|BokaInteDirekt\\BokaInteDirekt.csproj|solutionrelative:bokaintedirekt\\dto\\bookinguserrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0273916F-C730-4DC0-BAA2-71B14A3522DA}|BokaInteDirekt\\BokaInteDirekt.csproj|d:\\projekts\\2025\\nelly\\bokaintedirekt\\bokaintedirekt\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0273916F-C730-4DC0-BAA2-71B14A3522DA}|BokaInteDirekt\\BokaInteDirekt.csproj|solutionrelative:bokaintedirekt\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0273916F-C730-4DC0-BAA2-71B14A3522DA}|BokaInteDirekt\\BokaInteDirekt.csproj|d:\\projekts\\2025\\nelly\\bokaintedirekt\\bokaintedirekt\\interfaces\\iemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0273916F-C730-4DC0-BAA2-71B14A3522DA}|BokaInteDirekt\\BokaInteDirekt.csproj|solutionrelative:bokaintedirekt\\interfaces\\iemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0273916F-C730-4DC0-BAA2-71B14A3522DA}|BokaInteDirekt\\BokaInteDirekt.csproj|d:\\projekts\\2025\\nelly\\bokaintedirekt\\bokaintedirekt\\dto\\emailrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0273916F-C730-4DC0-BAA2-71B14A3522DA}|BokaInteDirekt\\BokaInteDirekt.csproj|solutionrelative:bokaintedirekt\\dto\\emailrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0273916F-C730-4DC0-BAA2-71B14A3522DA}|BokaInteDirekt\\BokaInteDirekt.csproj|d:\\projekts\\2025\\nelly\\bokaintedirekt\\bokaintedirekt\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0273916F-C730-4DC0-BAA2-71B14A3522DA}|BokaInteDirekt\\BokaInteDirekt.csproj|solutionrelative:bokaintedirekt\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0273916F-C730-4DC0-BAA2-71B14A3522DA}|BokaInteDirekt\\BokaInteDirekt.csproj|d:\\projekts\\2025\\nelly\\bokaintedirekt\\bokaintedirekt\\interfaces\\ibookingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0273916F-C730-4DC0-BAA2-71B14A3522DA}|BokaInteDirekt\\BokaInteDirekt.csproj|solutionrelative:bokaintedirekt\\interfaces\\ibookingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0273916F-C730-4DC0-BAA2-71B14A3522DA}|BokaInteDirekt\\BokaInteDirekt.csproj|d:\\projekts\\2025\\nelly\\bokaintedirekt\\bokaintedirekt\\dto\\bookingrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0273916F-C730-4DC0-BAA2-71B14A3522DA}|BokaInteDirekt\\BokaInteDirekt.csproj|solutionrelative:bokaintedirekt\\dto\\bookingrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0273916F-C730-4DC0-BAA2-71B14A3522DA}|BokaInteDirekt\\BokaInteDirekt.csproj|d:\\projekts\\2025\\nelly\\bokaintedirekt\\bokaintedirekt\\dto\\bookappointmentrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0273916F-C730-4DC0-BAA2-71B14A3522DA}|BokaInteDirekt\\BokaInteDirekt.csproj|solutionrelative:bokaintedirekt\\dto\\bookappointmentrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0273916F-C730-4DC0-BAA2-71B14A3522DA}|BokaInteDirekt\\BokaInteDirekt.csproj|d:\\projekts\\2025\\nelly\\bokaintedirekt\\bokaintedirekt\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0273916F-C730-4DC0-BAA2-71B14A3522DA}|BokaInteDirekt\\BokaInteDirekt.csproj|solutionrelative:bokaintedirekt\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,11 +54,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 223,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "BookingServiceTests.cs",
+              "DocumentMoniker": "D:\\projekts\\2025\\Nelly\\BokaInteDirekt\\BokaInteDirekt\\Tests\\BookingServiceTests.cs",
+              "RelativeDocumentMoniker": "BokaInteDirekt\\Tests\\BookingServiceTests.cs",
+              "ToolTip": "D:\\projekts\\2025\\Nelly\\BokaInteDirekt\\BokaInteDirekt\\Tests\\BookingServiceTests.cs",
+              "RelativeToolTip": "BokaInteDirekt\\Tests\\BookingServiceTests.cs",
+              "ViewState": "AgIAAE0AAAAAAAAAAAAIwCgAAABMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-10T10:03:55.164Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "BookAppointmentRequest.cs",
               "DocumentMoniker": "D:\\projekts\\2025\\Nelly\\BokaInteDirekt\\BokaInteDirekt\\DTO\\BookAppointmentRequest.cs",
               "RelativeDocumentMoniker": "BokaInteDirekt\\DTO\\BookAppointmentRequest.cs",
@@ -71,20 +84,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Booking.cs",
               "DocumentMoniker": "D:\\projekts\\2025\\Nelly\\BokaInteDirekt\\BokaInteDirekt\\Models\\Booking.cs",
               "RelativeDocumentMoniker": "BokaInteDirekt\\Models\\Booking.cs",
               "ToolTip": "D:\\projekts\\2025\\Nelly\\BokaInteDirekt\\BokaInteDirekt\\Models\\Booking.cs",
               "RelativeToolTip": "BokaInteDirekt\\Models\\Booking.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAASAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-31T15:59:30.362Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "BookingUserRequest.cs",
               "DocumentMoniker": "D:\\projekts\\2025\\Nelly\\BokaInteDirekt\\BokaInteDirekt\\DTO\\BookingUserRequest.cs",
               "RelativeDocumentMoniker": "BokaInteDirekt\\DTO\\BookingUserRequest.cs",
@@ -103,40 +116,40 @@
               "RelativeDocumentMoniker": "BokaInteDirekt\\Controllers\\BookingController.cs",
               "ToolTip": "D:\\projekts\\2025\\Nelly\\BokaInteDirekt\\BokaInteDirekt\\Controllers\\BookingController.cs",
               "RelativeToolTip": "BokaInteDirekt\\Controllers\\BookingController.cs",
-              "ViewState": "AgIAACIAAAAAAAAAAAASwDcAAAADAAAAAAAAAA==",
+              "ViewState": "AgIAACEAAAAAAAAAAAAQwDoAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-26T13:27:10.237Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "IBookingService.cs",
               "DocumentMoniker": "D:\\projekts\\2025\\Nelly\\BokaInteDirekt\\BokaInteDirekt\\Interfaces\\IBookingService.cs",
               "RelativeDocumentMoniker": "BokaInteDirekt\\Interfaces\\IBookingService.cs",
               "ToolTip": "D:\\projekts\\2025\\Nelly\\BokaInteDirekt\\BokaInteDirekt\\Interfaces\\IBookingService.cs",
               "RelativeToolTip": "BokaInteDirekt\\Interfaces\\IBookingService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA7AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-31T16:02:26.168Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "BookingService.cs",
               "DocumentMoniker": "D:\\projekts\\2025\\Nelly\\BokaInteDirekt\\BokaInteDirekt\\Services\\BookingService.cs",
               "RelativeDocumentMoniker": "BokaInteDirekt\\Services\\BookingService.cs",
               "ToolTip": "D:\\projekts\\2025\\Nelly\\BokaInteDirekt\\BokaInteDirekt\\Services\\BookingService.cs",
               "RelativeToolTip": "BokaInteDirekt\\Services\\BookingService.cs",
-              "ViewState": "AgIAAHUAAAAAAAAAAAAmwGIAAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEMAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-31T15:44:09.524Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 8,
               "Title": "BookingRequest.cs",
               "DocumentMoniker": "D:\\projekts\\2025\\Nelly\\BokaInteDirekt\\BokaInteDirekt\\DTO\\BookingRequest.cs",
               "RelativeDocumentMoniker": "BokaInteDirekt\\DTO\\BookingRequest.cs",
@@ -149,7 +162,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "User.cs",
               "DocumentMoniker": "D:\\projekts\\2025\\Nelly\\BokaInteDirekt\\BokaInteDirekt\\Models\\User.cs",
               "RelativeDocumentMoniker": "BokaInteDirekt\\Models\\User.cs",
@@ -157,44 +170,30 @@
               "RelativeToolTip": "BokaInteDirekt\\Models\\User.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-31T13:09:51.091Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-31T13:09:51.091Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "EmailRequest.cs",
-              "DocumentMoniker": "D:\\projekts\\2025\\Nelly\\BokaInteDirekt\\BokaInteDirekt\\DTO\\EmailRequest.cs",
-              "RelativeDocumentMoniker": "BokaInteDirekt\\DTO\\EmailRequest.cs",
-              "ToolTip": "D:\\projekts\\2025\\Nelly\\BokaInteDirekt\\BokaInteDirekt\\DTO\\EmailRequest.cs",
-              "RelativeToolTip": "BokaInteDirekt\\DTO\\EmailRequest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-31T12:55:56.681Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 0,
               "Title": "EmailService.cs",
               "DocumentMoniker": "D:\\projekts\\2025\\Nelly\\BokaInteDirekt\\BokaInteDirekt\\Services\\EmailService.cs",
               "RelativeDocumentMoniker": "BokaInteDirekt\\Services\\EmailService.cs",
               "ToolTip": "D:\\projekts\\2025\\Nelly\\BokaInteDirekt\\BokaInteDirekt\\Services\\EmailService.cs",
               "RelativeToolTip": "BokaInteDirekt\\Services\\EmailService.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAD8AAABMAAAAAAAAAA==",
+              "ViewState": "AgIAACIAAAAAAAAAAAAgwDAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-31T14:44:00.512Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 2,
               "Title": "IEmailService.cs",
               "DocumentMoniker": "D:\\projekts\\2025\\Nelly\\BokaInteDirekt\\BokaInteDirekt\\Interfaces\\IEmailService.cs",
               "RelativeDocumentMoniker": "BokaInteDirekt\\Interfaces\\IEmailService.cs",
               "ToolTip": "D:\\projekts\\2025\\Nelly\\BokaInteDirekt\\BokaInteDirekt\\Interfaces\\IEmailService.cs",
               "RelativeToolTip": "BokaInteDirekt\\Interfaces\\IEmailService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAkAAABKAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAgAAABLAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-31T13:12:32.691Z",
               "EditorCaption": ""

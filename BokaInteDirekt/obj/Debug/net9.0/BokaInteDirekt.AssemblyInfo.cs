@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BokaInteDirekt")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a1d16a603c1709531b6c48b2acea836f6c65b68d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+191765035963bfed81f534c99492fc80b2881509")]
 [assembly: System.Reflection.AssemblyProductAttribute("BokaInteDirekt")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BokaInteDirekt")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

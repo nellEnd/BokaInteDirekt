@@ -8,9 +8,7 @@ namespace BokaInteDirekt.Services
 {
     public class BookingService(BokaInteDirektContext context) : IBookingService
     {
-        private List<Booking>? _bookings;
         private readonly BokaInteDirektContext _context = context;
-
 
         public async Task<Booking> CreateAppointment(BookingRequest request)
         {
@@ -32,11 +30,6 @@ namespace BokaInteDirekt.Services
         {
             var bookings = await _context.Bookings.ToListAsync();
             return bookings;
-            /*if (_bookings == null)
-			{
-				populateList();
-			}
-			return Task.FromResult(_bookings);*/
         }
 
         public async Task<List<Booking>?> GetAvailableAppointments(string bookingType)
@@ -46,7 +39,6 @@ namespace BokaInteDirekt.Services
                 .OrderBy(b => b.Date)
                 .ThenBy(b => b.StartTime)
                 .ToListAsync();
-            //allSlots.OrderBy(b => b.Date);
 
             var availableSlots = new List<Booking>();
             var duration = bookingType.ToUpper() == "Nybesök".ToUpper() ? 40 : 20;
@@ -57,14 +49,14 @@ namespace BokaInteDirekt.Services
                 TimeSpan.TryParse(slot.StartTime, out TimeSpan startTime);
                 var requiredEndTime = startTime.Add(TimeSpan.FromMinutes(duration));
 
-                if(duration == 20)
+                if (duration == 20)
                     availableSlots.Add(slot);
-                else if(duration == 40 && i < allSlots.Count - 1)
+                else if (duration == 40 && i < allSlots.Count - 1)
                 {
                     var nextSlot = allSlots[i + 1];
                     TimeSpan.TryParse(nextSlot.StartTime, out TimeSpan nextStartTime);
 
-                    if(slot.Date == nextSlot.Date && nextStartTime == startTime.Add(TimeSpan.FromMinutes(20)))
+                    if (slot.Date == nextSlot.Date && nextStartTime == startTime.Add(TimeSpan.FromMinutes(20)))
                         availableSlots.Add(slot);
                 }
             }
@@ -93,16 +85,21 @@ namespace BokaInteDirekt.Services
                 b.IsAvailable)
                 .FirstOrDefaultAsync();
 
-            if (nextSlot != null)
-                nextSlot.IsAvailable = false;
+            if (nextSlot == null)
+                return null;
 
+            nextSlot.IsAvailable = false;
+            nextSlot.CustomerEmail = request.User.Email;
             await _context.SaveChangesAsync();
             return appointment;
         }
 
-        public async Task<List<Booking>> GetBookings()
+        public async Task<List<Booking>?> GetBookings()
         {
-            var bookings = await _context.Bookings.ToListAsync();
+            var bookings = await _context.Bookings
+                .OrderBy(b => b.Date)
+                .ThenBy(b => b.StartTime)
+                .ToListAsync();
 
             if (bookings == null)
                 return null;
@@ -121,27 +118,5 @@ namespace BokaInteDirekt.Services
             await _context.SaveChangesAsync();
             return true;
         }
-
-        private void populateList()
-        {
-            _bookings = new List<Booking>();
-            var days = new[] { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday" };
-
-            foreach (var day in days)
-            {
-                var date = DateTime.Today.AddDays(Array.IndexOf(days, day)); // Lägger till rätt dag
-                for (int i = 0; i < 10; i++)
-                {
-                    // Skapar tider för bokningarna, ex: 08:00 - 09:00, 09:00 - 10:00, etc.
-                    var startHour = 8 + i;
-                    var startTime = $"{startHour:00}:00";
-                    var endTime = $"{startHour + 1:00}:00";
-
-                    // Lägg till bokningen i listan
-                    //_bookings.Add(new Booking(day, date, startTime, endTime, true));
-                }
-            }
-        }
-
     }
 }

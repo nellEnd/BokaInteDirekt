@@ -12,7 +12,7 @@ namespace BokaInteDirekt.Services
         private readonly SmtpEmail _smtp = smtp.Value;
         private readonly string adminEmail = "nellyendler@gmail.com";
 
-        public async Task SetBookingEmail(User user, Booking booking)
+        public async Task SetBookingEmail(User user, Booking booking, string bookingType)
         {
             string emailBody = $"Hej {user.FirstName}!\nDu har gjort följande bokning:\n{booking.BookingType}\n" +
                 $"Datum: {booking.Day:yyyy-MM-dd}\n" +
@@ -42,7 +42,7 @@ namespace BokaInteDirekt.Services
             await client.SendMailAsync(message);
         }
 
-        public async Task SetAdminEmail(Booking booking, BookAppointmentRequest request)
+        public async Task SetAdminEmail(Booking booking, BookAppointmentRequest request, string bookingType)
         {
             var startTime = DateTime.Parse($"{booking.Day} {booking.StartTime}");
             var endTime = DateTime.Parse($"{booking.Day}   {booking.EndTime}");
@@ -58,10 +58,10 @@ namespace BokaInteDirekt.Services
             string emailBody = $@"
         <p><strong>Ny boking: </p>
         <ul>
-            <li><strong>{booking.BookingType}</strong></li>
+            <li><strong>{booking.BookingType} - {bookingType}</strong></li>
             <li>Datum: {booking.Day:yyyy-MM-dd}</li>
             <li>Tid: {booking.StartTime}-{booking.EndTime}</li>
-            <li>Bokning gjord av: {request.User.FirstName} {request.User.LastName} Datum: {DateTime.Now}</li>
+            <li>Bokning gjord av: {request.User.FirstName} {request.User.LastName} <li>Datum: {DateTime.Now}</i> </li>
         </ul>
         <p>
             <a href='{googleCalendarLink}' 

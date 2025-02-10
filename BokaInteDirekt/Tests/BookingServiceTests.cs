@@ -13,20 +13,41 @@ namespace BokaInteDirekt.Tests
     {
         private readonly BokaInteDirektContext _context;
         private readonly BookingService _bookingService;
+        private readonly SqliteConnection _connection;
 
         public BookingServiceTests()
         {
-            var connection = new SqliteConnection("DataSource=:memory:");
-            connection.Open(); // Viktigt! Annars raderas databasen direkt
+            _connection = new SqliteConnection("DataSource=:memory:");
+            _connection.Open(); // Viktigt! Annars raderas databasen direkt
 
             var options = new DbContextOptionsBuilder<BokaInteDirektContext>()
-                .UseSqlite(connection) // Använd SQLite in-memory
+                .UseSqlite(_connection) // Använd SQLite in-memory
                 .Options;
 
             _context = new BokaInteDirektContext(options);
+            _context.Database.EnsureDeleted(); // Nollställ databas
             _context.Database.EnsureCreated(); // Skapa tabeller
 
+            SeedDatabase(); // Lägg till testdata
+
             _bookingService = new BookingService(_context);
+        }
+
+        private void SeedDatabase()
+        {
+            _context.Bookings.AddRange(new List<Booking>
+            {
+                new Booking { Id = 1, Day = "2025-02-11", StartTime = "10:00", EndTime = "10:20", IsAvailable = true, BookingType = "Behandling" },
+                new Booking { Id = 2, Day = "2025-02-11", StartTime = "10:20", EndTime = "10:40", IsAvailable = true, BookingType = "Behandling" }
+            });
+
+            _context.SaveChanges();
+        }
+
+        public void Dispose()
+        {
+            _context.Dispose();
+            _connection.Dispose();
         }
 
         [Fact]
@@ -57,6 +78,69 @@ namespace BokaInteDirekt.Tests
             Assert.NotNull(bookingInDb);
         }
 
+        [Fact]
+        public async Task BookAppointment_ShouldBook_WhenValidRequest()
+        {
+            // Arrange
+            var request = new BookAppointmentRequest
+            {
+                User = new User { Email = "test@mail.se" }
+            };
+            var bookingType = "Nybesök";
+
+            // Act
+            var result = await _bookingService.BookAppointment(1, bookingType, request);
+
+            // Assert
+            Assert.NotNull(result);
+            Assert.False(result.IsAvailable);
+            Assert.Equal("test@mail.se", result.CustomerEmail);
+            Assert.Equal("10:40", result.EndTime); // 10:00 + 40 min
+
+            // Kontrollera att nästa tidslucka också bokas
+            var nextSlot = await _context.Bookings.FirstOrDefaultAsync(b => b.Id == 2);
+            Assert.NotNull(nextSlot);
+            Assert.False(nextSlot.IsAvailable);
+            Assert.Equal("test@mail.se", nextSlot.CustomerEmail);
+        }
+        
+        [Fact]
+        public async Task BookAppointment_ShouldReturnNull_WhenAppointmentIsNotAvailable()
+        {
+            // Arrange - Lägg till en bokning som redan är upptagen
+            var existingBooking = await _context.Bookings.FindAsync(1);
+            if (existingBooking != null)
+            {
+                existingBooking.IsAvailable = false;
+                existingBooking.CustomerEmail = "test@mail.se";
+            }
+            else
+            {
+                _context.Bookings.Add(new Booking
+                {
+                    Id = 1,
+                    Day = "2025-02-11",
+                    StartTime = "10:00",
+                    EndTime = "10:20",
+                    IsAvailable = false,
+                    CustomerEmail = "test@mail.se"
+                });
+            }
+
+            await _context.SaveChangesAsync();
+
+            // Act - Försök boka en upptagen tid
+            var request = new BookAppointmentRequest
+            {
+                User = new User { Email = "test@mail.se" }
+            };
+            var bookingType = "Återbesök";
+
+            var result = await _bookingService.BookAppointment(1, bookingType, request);
+
+            // Assert - Ska returnera null
+            Assert.Null(result); 
+        }
     }
 }
 
