@@ -56,8 +56,8 @@ namespace BokaInteDirekt.Controllers
 			if (book == null)
 				return BadRequest("The appointment is not available.");
 
-            await _emailService.SetBookingEmail(request.User, book, bookingType, book.Id, book.CancelId);
-            await _emailService.SetAdminEmail(book, request, bookingType);
+            //await _emailService.SetBookingEmail(request.User, book, bookingType, book.Id, book.CancelId);
+            //await _emailService.SetAdminEmail(book, request, bookingType);
 
             return Ok($"Following appointment was successfully booked:\n{book}");
 		}
@@ -93,6 +93,7 @@ namespace BokaInteDirekt.Controllers
 			if (appointment == null)
 				return BadRequest("The appointment does not exist or is already cancelled.");
 
+			await _emailService.SetCancelEmail(appointment);
 			return Ok($"Following appointment is cancelled:\n" +
 				$"{appointment}");
 		}

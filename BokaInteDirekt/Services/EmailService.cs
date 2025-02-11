@@ -25,6 +25,20 @@ namespace BokaInteDirekt.Services
         }
 
         // CANCEL EMAIL
+        public async Task SetCancelEmail(Booking booking)
+        {
+            string emailBody = $@" <p><strong>Avbokning: </p>
+            <ul>
+            <li><strong>{booking.BookingType}</strong></li>
+            <li>Datum: {booking.Day:yyyy-MM-dd}</li>
+            <li>Tid: {booking.StartTime}-{booking.EndTime}</li>
+            <li>Avbokningen gjordes: 
+            <li>Datum: {DateTime.Now}</i>
+            <li>Av: {booking.CustomerEmail}</li></li>
+            </ul>
+            ";
+        }
+
 
         public async Task SendEmail(string receiver, string subject, string body)
         {
