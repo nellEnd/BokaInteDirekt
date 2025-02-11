@@ -1,0 +1,11 @@
+*.user
+*.vs/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln.cache
+*.sw?
+packages/
+node_modules/
+wwwroot/lib/
