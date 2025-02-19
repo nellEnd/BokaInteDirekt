@@ -50,57 +50,67 @@ namespace BokaInteDirekt.Services
             return bookings;
         }
 
-        public async Task<List<Booking>?> GetAvailableAppointments(string bookingType)
+        public async Task<List<string>?> GetAvailableAppointments(string bookingType)
         {
-            /*            if (!_bookingDurations.TryGetValue(bookingType.ToUpper(), out int duration))
-                            return new List<string>();
+            if (!_bookingDurations.TryGetValue(bookingType.ToUpper(), out int duration))
+                return new List<string>();
 
-                        var availableSlots = await _context.Bookings
-                            .Where(b => b.IsAvailable)
-                            .OrderBy(b => b.StartTime)
-                            .ToListAsync();
-
-                        var possibleStartTimes = new List<string>();
-
-                        foreach (var slot in availableSlots)
-                        {
-                            var newEndTime = TimeSpan.Parse(slot.StartTime).Add(TimeSpan.FromMinutes(duration)).ToString(@"hh\:mm");
-
-                            // Kontrollera om alla slots inom intervallet är lediga och i direkt följd
-                            var continuousSlots = FindContinuousSlots(slot.StartTime, newEndTime, availableSlots);
-                            if (continuousSlots.Any())
-                                possibleStartTimes.Add(slot.StartTime);
-                        }
-
-                        return possibleStartTimes;
-            */
-
-            var allSlots = await _context.Bookings
+            var availableSlots = await _context.Bookings
                 .Where(b => b.IsAvailable)
-                .OrderBy(b => b.Date)
-                .ThenBy(b => b.StartTime)
+                .OrderBy(b => b.StartTime)
                 .ToListAsync();
 
-            var availableSlots = new List<Booking>();
-            // var duration = bookingType.ToUpper() == "Nybesök".ToUpper() ? 40 : 20;
-            _bookingDurations.TryGetValue(bookingType.ToUpper(), out int duration);
+            var possibleStartTimes = new List<string>();
 
-            for (int i = 0; i < allSlots.Count; i++)
+            for (int i = 0; i< availableSlots.Count; i++)
             {
-                var slot = allSlots[i];
-                TimeSpan.TryParse(slot.StartTime, out TimeSpan startTime);
-                var requiredEndTime = startTime.Add(TimeSpan.FromMinutes(duration));
+                var slot = availableSlots[i];
+                var newEndTime = TimeSpan.Parse(slot.StartTime).Add(TimeSpan.FromMinutes(duration)).ToString(@"hh\:mm");
+                var continuosSlots = FindContinuousSlots(slot.StartTime, newEndTime, availableSlots);
 
-                if ( i < allSlots.Count - 1)
-                {
-                    var nextSlot = allSlots[i + 1];
-                    TimeSpan.TryParse(nextSlot.StartTime, out TimeSpan nextStartTime);
-
-                    if (slot.Date == nextSlot.Date && nextStartTime == startTime.Add(TimeSpan.FromMinutes(5)))
-                        availableSlots.Add(slot);
-                }
+                if (continuosSlots.Count > 0)
+                    possibleStartTimes.Add(slot.StartTime);
             }
-            return availableSlots;
+
+			foreach (var slot in availableSlots)
+			{
+				var newEndTime = TimeSpan.Parse(slot.StartTime).Add(TimeSpan.FromMinutes(duration)).ToString(@"hh\:mm");
+
+				// Kontrollera om alla slots inom intervallet är lediga och i direkt följd
+				var continuousSlots = FindContinuousSlots(slot.StartTime, newEndTime, availableSlots);
+				if (continuousSlots.Any())
+					possibleStartTimes.Add(slot.StartTime);
+			}
+
+			return possibleStartTimes;
+
+
+            /*            var allSlots = await _context.Bookings
+                            .Where(b => b.IsAvailable)
+                            .OrderBy(b => b.Date)
+                            .ThenBy(b => b.StartTime)
+                            .ToListAsync();
+
+                        var availableSlots = new List<Booking>();
+                        // var duration = bookingType.ToUpper() == "Nybesök".ToUpper() ? 40 : 20;
+                        _bookingDurations.TryGetValue(bookingType.ToUpper(), out int duration);
+
+                        for (int i = 0; i < allSlots.Count; i++)
+                        {
+                            var slot = allSlots[i];
+                            TimeSpan.TryParse(slot.StartTime, out TimeSpan startTime);
+                            var requiredEndTime = startTime.Add(TimeSpan.FromMinutes(duration));
+
+                            if ( i < allSlots.Count - 1)
+                            {
+                                var nextSlot = allSlots[i + 1];
+                                TimeSpan.TryParse(nextSlot.StartTime, out TimeSpan nextStartTime);
+
+                                if (slot.Date == nextSlot.Date && nextStartTime == startTime.Add(TimeSpan.FromMinutes(5)))
+                                    availableSlots.Add(slot);
+                            }
+                        }
+                        return availableSlots;*/
         }
 
         public async Task<Booking?> BookAppointment(int id, string bookingType, BookAppointmentRequest request)
@@ -234,8 +244,8 @@ namespace BokaInteDirekt.Services
 
         public async Task<Booking> UpdateAppointment(Booking appointment, BookAppointmentRequest request, string? newEndTime = null)
         {
-            appointment.EndTime = newEndTime ?? appointment.EndTime;
-            appointment.IsAvailable = false;
+            appointment.EndTime = newEndTime ?? appointment.EndTime;  // Om newEndTime inte är null, sätt det som ny sluttid annars behåll nuvarande.
+			appointment.IsAvailable = false;
             appointment.CustomerEmail = request.User.Email;
             appointment.CancelId = Guid.NewGuid().ToString("N")[..6].ToUpper();
 
@@ -251,16 +261,16 @@ namespace BokaInteDirekt.Services
             foreach (var slot in slots)
             {
                 if (slot.StartTime != currentEndTime)
-                    break; // Sluta om vi inte hittar en direkt anslutande slot
+                    break; 
 
                 result.Add(slot);
                 currentEndTime = slot.EndTime;
 
                 if (currentEndTime == endTime)
-                    return result; // Vi har hittat alla nödvändiga slots
+                    return result; 
             }
 
-            return new List<Booking>(); // Returnera tom lista om vi inte hittar rätt sekvens
+            return new List<Booking>();
         }
     }
 }

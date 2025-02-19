@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\projekts\\2025\\Nelly\\BokaInteDirekt\\BokaInteDirekt\\BokaInteDirekt.csproj": {}
+    "C:\\repos\\BokaInteDirekt\\BokaInteDirekt\\BokaInteDirekt.csproj": {}
   },
   "projects": {
-    "D:\\projekts\\2025\\Nelly\\BokaInteDirekt\\BokaInteDirekt\\BokaInteDirekt.csproj": {
+    "C:\\repos\\BokaInteDirekt\\BokaInteDirekt\\BokaInteDirekt.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\projekts\\2025\\Nelly\\BokaInteDirekt\\BokaInteDirekt\\BokaInteDirekt.csproj",
+        "projectUniqueName": "C:\\repos\\BokaInteDirekt\\BokaInteDirekt\\BokaInteDirekt.csproj",
         "projectName": "BokaInteDirekt",
-        "projectPath": "D:\\projekts\\2025\\Nelly\\BokaInteDirekt\\BokaInteDirekt\\BokaInteDirekt.csproj",
-        "packagesPath": "C:\\Users\\Wiland'\\.nuget\\packages\\",
-        "outputPath": "D:\\projekts\\2025\\Nelly\\BokaInteDirekt\\BokaInteDirekt\\obj\\",
+        "projectPath": "C:\\repos\\BokaInteDirekt\\BokaInteDirekt\\BokaInteDirekt.csproj",
+        "packagesPath": "C:\\Users\\nelly\\.nuget\\packages\\",
+        "outputPath": "C:\\repos\\BokaInteDirekt\\BokaInteDirekt\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Wiland'\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\nelly\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
