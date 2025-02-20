@@ -40,7 +40,7 @@ namespace BokaInteDirekt.Controllers
 		[HttpGet]
 		public async Task<IActionResult> GetAvailableAppointments([FromQuery] string bookingType)
 		{
-			var appointments = await _service.GetAvailableAppointments(bookingType);
+			var appointments =  _service.GetAvailableAppointments(bookingType); // hämtas bara 13 st från Db?? men borde vara 25
 			if (appointments == null || appointments.Count == 0)
 				return NotFound("No available appointments found.");
 			return Ok(appointments);
